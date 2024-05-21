@@ -1,0 +1,65 @@
+.social-icons .bi {
+  color: black;
+  font-size: 40px;
+}
+
+.icon a:hover {
+  color: #ffc107;
+}
+
+.instagram {
+  text-decoration: none;
+  color: black;
+}
+
+.custom-nav .nav-item {
+  margin-left: 50px;
+  /* Khoảng cách mong muốn giữa các mục */
+}
+.nav-item:hover {
+  text-decoration: overline;
+  /* Khoảng cách mong muốn giữa các mục */
+}
+.img_profile img {
+  object-fit: cover;
+  max-height: 500px;
+}
+
+
+/* Định dạng hiệu ứng di chuyển */
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+/* Áp dụng hiệu ứng cho các phần tử */
+p.fw-bold.h1 {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.slide-out-left {
+  animation-name: slideOutLeft;
+}
+
+.slide-in-right {
+  animation-name: slideInRight;
+}
