@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="css/index_02.css">
     <link rel="website icon" type="jpg" href="img/7748166.jpg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 </head>
 
@@ -95,15 +96,15 @@
                                         <div class="introduction text-center mt-5">
                                             <p class="fw-bold h4">Hi I'm</p>
                                             <p class="fw-bold h1 text-warning ">Batoluxi</p>
-                                            <p class="fw-bold h1 word">Backend developer</p>
+                                            <p class="fw-bold h1 typing-effect" id="typing-text"></p>
                                             <p class="fw-light fst-italic">My real Vietnamese name is Nguyen Vo Quoc Anh
-                                                but you can call me Luxi.</p>
+                                                but you can call me Batoluxi.</p>
                                         </div>
                                         <hr>
                                         <div class="">
                                             <div class="row text-center ">
                                                 <div class="col">
-                                                    <div class="btn btn-warning ">Donwload CV</div>
+                                                    <a href="assets/Resume_NGUYEN_VO_QUOC_ANH_11_07_2024.pdf" class="btn btn-warning" download>Download CV</a>
                                                 </div>
                                                 <div class="col">
                                                     <div class="btn btn-light">Contact Infor</div>
@@ -144,7 +145,7 @@
                                                 </div>
                                                 <div class="col">
                                                     <a
-                                                        href="https://www.linkedin.com/in/nguy%E1%BB%85n-v%C3%B5-qu%E1%BB%91c-anh-4a8a8a185/">
+                                                        href="https://www.linkedin.com/in/nguyen-vo-quoc-anh-4a8a8a185?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bg3ck6OxcQySdBk%2FTMJJ%2FTA%3D%3D">
                                                         <i class="bi bi-linkedin"></i>
                                                         <br>
                                                         <a href="#" class="instagram">Linkedln</a>
@@ -169,23 +170,34 @@
     </div>
 </body>
 <script>
-const wordElement = document.querySelector('p.word');
-const words = ['coder', 'art'];
-let currentIndex = 0;
+    const texts = [
+        "backend coder",
+        "blogger",
+        "lover teaching",
+        "designer",
+        "animal lover"
+    ];
 
-setInterval(() => {
-    wordElement.classList.add('slide-out-left');
-    setTimeout(() => {
-        wordElement.textContent = words[currentIndex];
-        wordElement.classList.remove('slide-out-left');
-        wordElement.classList.add('slide-in-right');
-        setTimeout(() => {
-            wordElement.classList.remove('slide-in-right');
-        }, 1000);
-    }, 1000);
+    let count = 0;
+    let index = 0;
+    let currentText = '';
+    let letter = '';
 
-    currentIndex = (currentIndex + 1) % words.length;
-}, 3000);
+    (function type() {
+        if (count === texts.length) {
+            count = 0;
+        }
+        currentText ="I am "+  texts[count];
+        letter = currentText.slice(0, ++index);
 
-</script>
+        document.getElementById('typing-text').textContent = letter;
+        if (letter.length === currentText.length) {
+            count++;
+            index = 0;
+            setTimeout(type, 1000); // Thời gian chờ giữa các từ
+        } else {
+            setTimeout(type, 150); // Tốc độ gõ chữ
+        }
+    }());
+</script> 
 </html>

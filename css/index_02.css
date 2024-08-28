@@ -63,3 +63,10 @@ p.fw-bold.h1 {
 .slide-in-right {
   animation-name: slideInRight;
 }
+
+.typing-effect {
+  font-weight: bold;
+  font-size: 2rem;
+  color: black;
+}
+
